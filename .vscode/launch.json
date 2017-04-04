@@ -7,7 +7,7 @@
         "request": "launch",
         "stopOnEntry": false,
         "console": "externalTerminal",
-        "program": "./src/main.py",
+        "program": "${workspaceRoot}/src/main.py",
         "cwd": "${workspaceRoot}",
         "debugOptions": [
             "WaitOnAbnormalExit",

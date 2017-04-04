@@ -18,7 +18,18 @@ class Game(object):
         self.currentPlayer = p1
 
         self.ui.onStart(self)
+
+        return self.play()
     
-    def nextPlayer():
+    def play(self):
+        while not self.board.isEmpty():
+            self.currentPlayer.makeMove(self)
+            self.nextPlayer()
+        return self.finish()    
+
+    def nextPlayer(self):
         assert(self.currentPlayer != None)
         self.currentPlayer = self.p2 if self.currentPlayer is self.p1 else self.p1
+
+    def finish(self):
+        return self.ui.finish()

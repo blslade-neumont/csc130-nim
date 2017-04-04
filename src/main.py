@@ -4,10 +4,11 @@ from Board import *
 from HumanPlayer import *
 
 def main():
-    print('Welcome to Nim!')
     ui = ConsoleUserInterface()
-    game = Game(ui)
-    game.start(Board([3, 5, 7]), HumanPlayer('Player 1'), HumanPlayer('Player 2'))
+    while True:
+        game = Game(ui)
+        if not game.start(Board([3, 5, 7]), HumanPlayer('Player 1'), HumanPlayer('Player 2')):
+            break
 
-if __name__ == '__main__':
+if __name__ == '__main__':    
     main()

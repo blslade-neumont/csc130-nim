@@ -8,3 +8,4 @@ class HumanPlayer(Player):
         while True:
             if game.board.makeMove(*game.ui.solicitHumanMove(self)):
                 return
+            game.ui.invalidMove()
