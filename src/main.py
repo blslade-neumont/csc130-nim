@@ -2,6 +2,7 @@ from ConsoleUserInterface import *
 from Game import *
 from Board import *
 from HumanPlayer import *
+from AiPlayer import *
 
 def main():
     ui = ConsoleUserInterface()

@@ -1,4 +1,5 @@
 from UserInterface import UserInterface
+from Util import *
 
 class ConsoleUserInterface(UserInterface):
     def __init__(self):
@@ -17,8 +18,19 @@ class ConsoleUserInterface(UserInterface):
     def solicitHumanMove(self, player):
         self.printBoard()
         print('\n' + player.name + ', make your move!')
-        row = int(input('What row do you want to take from? ' )) - 1
-        count = int(input('How many do you want to take? '))
+
+        row, count = None, None
+        while row == None or count == None:
+            row = ignore_exception(ValueError, None)(int)(input('What row do you want to take from? ')) - 1
+            if (row == None):
+                self.invalidMove()
+                continue
+            
+            count = ignore_exception(ValueError, None)(int)(input('How many do you want to take? '))
+            if (count == None):
+                self.invalidMove()
+                continue
+
         return (row, count)
 
     def finish(self):
@@ -26,4 +38,8 @@ class ConsoleUserInterface(UserInterface):
         return input("Do you want to play again? (y/n) ")[0] in ['y', 'Y']
         
     def invalidMove(self):
+<<<<<<< 0b9cdb3ddfbe6a957ae53a00d31c5f59933d60cb
         print("That was not a valid move!")
+=======
+        print("\nThat was not a valid move!")
+>>>>>>> Added ai (not fully functional yet)
