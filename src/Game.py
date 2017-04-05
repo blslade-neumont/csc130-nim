@@ -4,7 +4,7 @@ class Game(object):
     def __init__(self, ui):
         assert(ui != None)
         self.ui = ui
-
+        
         self.board = None
         self.p1 = None
         self.p2 = None
@@ -16,9 +16,9 @@ class Game(object):
         self.p1 = p1
         self.p2 = p2
         self.currentPlayer = p1
-
+        
         self.ui.onStart(self)
-
+        
         return self.play()
     
     def play(self):
@@ -26,10 +26,10 @@ class Game(object):
             self.currentPlayer.makeMove(self)
             self.nextPlayer()
         return self.finish()    
-
+    
     def nextPlayer(self):
         assert(self.currentPlayer != None)
         self.currentPlayer = self.p2 if self.currentPlayer is self.p1 else self.p1
-
+    
     def finish(self):
         return self.ui.finish()

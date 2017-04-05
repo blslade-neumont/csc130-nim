@@ -8,22 +8,22 @@ class AiPlayer(Player):
         result = 0
         for row in board.rows:
             result ^= row
-        return result  
-
+        return result
+    
     def makeMove(self, game):
         x = self.xorCombined(game.board)
-
+        
         move = None
         if x == 0:
             for i, row in enumerate(game.board.rows):
                 if row > 0:
                     move = (i, 1)
-
+        
         for i, row in enumerate(game.board.rows):
             if row ^ x < row:
                 count = row - (row ^ x)
                 move = (i, count)
-
+        
         rowsGreaterThanOne = 0
         for row in game.board.rows:
             nextRow = row - move[1] if row == move[0] else row
@@ -34,5 +34,5 @@ class AiPlayer(Player):
             
             count = game.board.rows[move[0]] - one_count % 2
             move = (i, count)
-
+        
         game.board.makeMove(*move)
