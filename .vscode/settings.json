@@ -5,7 +5,9 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "**/*.pyc": true
+        "**/*.pyc": true,
+        "**/__pycache__": true
     },
-    "python.pythonPath": "python3"
+    "python.pythonPath": "python3",
+    "files.insertFinalNewline": true
 }

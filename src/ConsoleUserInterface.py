@@ -38,8 +38,4 @@ class ConsoleUserInterface(UserInterface):
         return input("Do you want to play again? (y/n) ")[0] in ['y', 'Y']
         
     def invalidMove(self):
-<<<<<<< 0b9cdb3ddfbe6a957ae53a00d31c5f59933d60cb
-        print("That was not a valid move!")
-=======
         print("\nThat was not a valid move!")
->>>>>>> Added ai (not fully functional yet)
