@@ -18,24 +18,27 @@ class ConsoleUserInterface(UserInterface):
     def solicitHumanMove(self, player):
         self.printBoard()
         print('\n' + player.name + ', make your move!')
-
+        
         row, count = None, None
         while row == None or count == None:
-            row = ignore_exception(ValueError, None)(int)(input('What row do you want to take from? ')) - 1
+            row = ignore_exception(ValueError, None)(int)(input('What row do you want to take from? '))
             if (row == None):
                 self.invalidMove()
                 continue
+            row -= 1
             
             count = ignore_exception(ValueError, None)(int)(input('How many do you want to take? '))
             if (count == None):
                 self.invalidMove()
                 continue
-
-        return (row, count)
-
-    def finish(self):
-        print(self.game.currentPlayer.name + " is the winner!")
-        return input("Do you want to play again? (y/n) ")[0] in ['y', 'Y']
         
+        return (row, count)
+    
+    def finish(self):
+        print("\n" + self.game.currentPlayer.name + " is the winner!")
+        playAgain = input("Do you want to play again? (y) ")
+        print()
+        return playAgain == '' or playAgain[0] in ['y', 'Y']
+    
     def invalidMove(self):
         print("\nThat was not a valid move!")
