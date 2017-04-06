@@ -1,8 +1,8 @@
 from Player import *
 
-class AiPlayer(Player):
+class PerfectAiPlayer(Player):
     def __init__(self):
-        super().__init__()
+        super().__init__('Perfect AI')
     
     def xorCombined(self, board):
         result = 0
@@ -35,4 +35,4 @@ class AiPlayer(Player):
             count = game.board.rows[move[0]] - one_count % 2
             move = (i, count)
         
-        game.board.makeMove(*move)
+        return move

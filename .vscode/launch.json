@@ -6,7 +6,7 @@
         "pythonPath":"${config:python.pythonPath}",
         "request": "launch",
         "stopOnEntry": false,
-        "console": "externalTerminal",
+        "console": "integratedTerminal",
         "program": "${workspaceRoot}/src/main.py",
         "cwd": "${workspaceRoot}",
         "debugOptions": [
