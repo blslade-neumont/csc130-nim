@@ -3,19 +3,19 @@ from ConsoleUserInterface import *
 
 class TestConsoleUserInterface(TestCase):
     def setUp(self):
-        pass
+        self.ui = ConsoleUserInterface()
     
     def tearDown(self):
-        pass
+        self.ui = None
     
     def test_printBoard(self):
-        pass
+        self.skipTest('Not implemented')
     
     def test_solicitHumanMove(self):
-        pass
+        self.skipTest('Not implemented')
     
     def test_finish(self):
-        pass
+        self.skipTest('Not implemented')
     
     def test_invalidMove(self):
-        pass
+        self.skipTest('Not implemented')

@@ -1,21 +1,26 @@
 from unittest import TestCase
 from Game import *
+from UserInterface import *
+
+class MockUi(UserInterface):
+    def __init__(self):
+        super().__init__()
 
 class TestGame(TestCase):
     def setUp(self):
-        pass
+        self.game = Game(MockUi())
     
     def tearDown(self):
-        pass
+        self.game = None
     
     def test_start(self):
-        pass
+        self.skipTest('Not implemented')
     
     def test_play(self):
-        pass
+        self.skipTest('Not implemented')
     
     def test_nextPlayer(self):
-        pass
+        self.skipTest('Not implemented')
     
     def test_finish(self):
-        pass
+        self.skipTest('Not implemented')

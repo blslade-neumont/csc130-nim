@@ -3,13 +3,13 @@ from PerfectAiPlayer import *
 
 class TestPerfectAiPlayer(TestCase):
     def setUp(self):
-        pass
+        self.p = PerfectAiPlayer()
     
     def tearDown(self):
-        pass
+        self.p = None
     
     def text_xorCombined(self):
-        pass
+        self.skipTest('Not implemented')
     
     def test_makeMove(self):
-        pass
+        self.skipTest('Not implemented')

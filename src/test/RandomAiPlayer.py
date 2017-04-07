@@ -3,10 +3,10 @@ from RandomAiPlayer import *
 
 class TestRandomAiPlayer(TestCase):
     def setUp(self):
-        pass
+        self.p = RandomAiPlayer()
     
     def tearDown(self):
-        pass
+        self.p = None
     
     def test_makeMove(self):
-        pass
+        self.skipTest('Not implemented')
