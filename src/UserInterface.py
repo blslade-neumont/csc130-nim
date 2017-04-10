@@ -10,5 +10,8 @@ class UserInterface(object):
     def solicitHumanMove(self, player):
         assert(False)
     
+    def invalidMove(self):
+        assert(False)
+    
     def finish(self):
         assert(False)

@@ -34,11 +34,11 @@ class ConsoleUserInterface(UserInterface):
         
         return (row, count)
     
+    def invalidMove(self):
+        print("\nThat was not a valid move!")
+    
     def finish(self):
         print("\n" + self.game.currentPlayer.name + " is the winner!")
         playAgain = input("Do you want to play again? (y) ")
         print()
         return playAgain == '' or playAgain[0] in ['y', 'Y']
-    
-    def invalidMove(self):
-        print("\nThat was not a valid move!")
