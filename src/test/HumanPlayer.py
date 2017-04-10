@@ -20,5 +20,5 @@ class TestHumanPlayer(TestCase):
     def tearDown(self):
         self.p = None
     
-    def test_makeMove(self):
+    def test_makeMove_callsSolicitHumanMove(self):
         self.assertTrue(self.p.makeMove(FauxGame()))

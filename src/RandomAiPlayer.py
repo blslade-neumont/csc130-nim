@@ -7,6 +7,7 @@ class RandomAiPlayer(Player):
     
     def makeMove(self, game):
         board = game.board
+        assert(board.rows != None and len(board.rows) > 0)
         return choice([
             (r, c)
             for r in range(len(board.rows))

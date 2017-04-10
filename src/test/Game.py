@@ -1,14 +1,10 @@
 from unittest import TestCase
 from Game import *
-from UserInterface import *
-
-class MockUi(UserInterface):
-    def __init__(self):
-        super().__init__()
+from test.FauxUi import *
 
 class TestGame(TestCase):
     def setUp(self):
-        self.game = Game(MockUi())
+        self.game = Game(FauxUi())
     
     def tearDown(self):
         self.game = None
