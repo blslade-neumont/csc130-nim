@@ -9,5 +9,6 @@
         "**/__pycache__": true
     },
     "python.pythonPath": "python3",
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "editor.trimAutoWhitespace": false
 }
