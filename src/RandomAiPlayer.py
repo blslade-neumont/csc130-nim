@@ -8,8 +8,4 @@ class RandomAiPlayer(Player):
     def makeMove(self, game):
         board = game.board
         assert(board.rows != None and len(board.rows) > 0)
-        return choice([
-            (r, c)
-            for r in range(len(board.rows))
-            for c in range(1, board.rows[r] + 1)
-        ])
+        return choice(board.possibleMoves())

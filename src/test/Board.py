@@ -24,3 +24,11 @@ class TestBoard(TestCase):
         self.assertFalse(self.board.isEmpty())
         self.board.rows = [0,0,0]
         self.assertTrue(self.board.isEmpty())
+    
+    def test_possibleMoves_initial(self):
+        moves = sum(self.board.rows)
+        self.assertTrue(len(self.board.possibleMoves()) == moves)
+    
+    def test_possibleMoves_empty(self):
+        self.board.rows = [0,0,0]
+        self.assertTrue(len(self.board.possibleMoves()) == 0)

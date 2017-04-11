@@ -10,3 +10,10 @@ class Board(object):
     
     def isEmpty(self):
         return not any(self.rows)
+    
+    def possibleMoves(self):
+        return [
+            (r, c)
+            for r in range(len(self.rows))
+            for c in range(1, self.rows[r] + 1)
+        ]
