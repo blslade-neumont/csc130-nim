@@ -1,5 +1,6 @@
 from unittest import TestCase
 from Board import *
+from random import randint
 
 class TestBoard(TestCase):
     def setUp(self):
@@ -28,6 +29,12 @@ class TestBoard(TestCase):
     def test_possibleMoves_initial(self):
         moves = sum(self.board.rows)
         self.assertTrue(len(self.board.possibleMoves()) == moves)
+    
+    def test_possibleMoves_random(self):
+        for test in range(1000):
+            self.board.rows = [randint(0, 20), randint(0, 20), randint(0, 20)]
+            moves = sum(self.board.rows)
+            self.assertTrue(len(self.board.possibleMoves()) == moves)
     
     def test_possibleMoves_empty(self):
         self.board.rows = [0,0,0]
