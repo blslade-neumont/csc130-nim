@@ -17,22 +17,26 @@ class PerfectAiPlayer(Player):
         if x == 0:
             for i, row in enumerate(game.board.rows):
                 if row > 0:
-                    move = (i, 1)
+                    move = (i, row)
         
-        for i, row in enumerate(game.board.rows):
-            if row ^ x < row:
-                count = row - (row ^ x)
-                move = (i, count)
-        
-        rowsGreaterThanOne = 0
-        for row in game.board.rows:
-            nextRow = row - move[1] if row == move[0] else row
-            rowsGreaterThanOne += (nextRow > 1)
-        
-        if rowsGreaterThanOne == 0:
-            one_count = sum(row > 0 for row in game.board.rows)
+        else:
+            for i, row in enumerate(game.board.rows):
+                if row ^ x < row:
+                    count = row - (row ^ x)
+                    move = (i, count)
+                    break
             
-            count = game.board.rows[move[0]] - one_count % 2
-            move = (i, count)
+            rowsGreaterThanOne = 0
+            for i,row in enumerate(game.board.rows):
+                nextRow = row - move[1] if i == move[0] else row
+                rowsGreaterThanOne += (nextRow > 1)
+            
+            if rowsGreaterThanOne == 0:
+                one_count = sum(row > 0 for row in game.board.rows)
+                count = game.board.rows[move[0]] - one_count % 2
+                move = (move[0], count)
         
+        if (move[1] == 0):
+            return (move[0], 1) # losing move
+            
         return move
