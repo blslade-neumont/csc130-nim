@@ -9,19 +9,15 @@ from RandomAiPlayer import *
 from LearningAiPlayer import *
 
 def main():
-    # lp1 = LearningAiPlayer()
-    # lp2 = LearningAiPlayer() 
-    # lp1.train(lp2)
+    lp1 = LearningAiPlayer()
+    # lp2 = LearningAiPlayer()
+    # lp1.train(lp2, iterations=1000)
     
     ui = ConsoleUserInterface()
     while True:
         game = Game(ui)
-        #p1 = HumanPlayer('Player 1')
-        p1 = PerfectAiPlayer()
-        p2 = PerfectAiPlayer()
-        # p2 = HumanPlayer('Player 2')
-        # p2 = lp1 #RandomAiPlayer()
-        print()
+        p1 = HumanPlayer('Player 1')
+        p2 = lp1
         if not game.start(Board([3, 5, 7]), p1, p2):
             break
 
