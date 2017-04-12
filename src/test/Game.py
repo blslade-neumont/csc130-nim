@@ -2,8 +2,8 @@ from unittest import TestCase
 from Game import *
 from Board import *
 from RandomAiPlayer import *
-from test.InvalidMovePlayer import *
-from test.FauxUi import *
+from test.util.InvalidMovePlayer import *
+from test.util.FauxUi import *
 
 class TestGame(TestCase):
     def setUp(self):

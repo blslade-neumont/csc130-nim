@@ -11,6 +11,7 @@ class FauxUi(UserInterface):
     
     def solicitHumanMove(self, player):
         self.expectVals.append(('solicitHumanMove', player))
+        return True
     
     def invalidMove(self):
         self.expectVals.append(('invalidMove'))

@@ -39,7 +39,9 @@ class LearningAiPlayer(Player):
             weight = self.weights[state] if state in self.weights else 0
             weight += value / (i + 1)
             self.weights[state] = weight
-
+        
+        super().recordResult(game, win)
+    
     def save(self, filename):
         with open(filename, 'w') as file:
             for key in self.weights:

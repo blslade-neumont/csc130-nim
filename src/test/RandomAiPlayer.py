@@ -2,7 +2,7 @@ from unittest import TestCase
 from RandomAiPlayer import *
 from Game import *
 from Board import *
-from test.FauxUi import *
+from test.util.FauxUi import *
 
 class TestRandomAiPlayer(TestCase):
     def setUp(self):
