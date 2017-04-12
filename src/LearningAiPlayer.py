@@ -39,3 +39,16 @@ class LearningAiPlayer(Player):
             weight = self.weights[state] if state in self.weights else 0
             weight += value / (i + 1)
             self.weights[state] = weight
+
+    def save(self, filename):
+        with open(filename, 'w') as file:
+            for key in self.weights:
+                file.write(",".join(map(str, key)) + ":" + str(self.weights[key]) + "\n")
+    
+    def load(self, filename):
+        self.weights = {}
+        with open(filename) as file:
+            for line in file:
+                key_str, score = line.split(":")
+                key = tuple(map(int, key_str.split(",")))
+                self.weights[key] = int(score)
