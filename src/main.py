@@ -1,5 +1,4 @@
 from ConsoleUserInterface import *
-from SilentUserInterface import *
 
 from Game import *
 from Board import *
@@ -13,14 +12,15 @@ def main():
     lp1 = LearningAiPlayer()
     lp2 = LearningAiPlayer()
     
-    silentUi = SilentUserInterface()
-    print('Training AIs')
-    for q in range(2500):
-        if q % 25 == 0:
-            print(str(q / 25) + '% done')
-        game = Game(silentUi)
-        game.start(Board([3, 5, 7]), lp1, lp2)
-        lp1, lp2 = lp2, lp1
+    lp1.train(lp2)
+    # silentUi = SilentUserInterface()
+    # print('Training AIs')
+    # for q in range(2500):
+    #     if q % 250 == 0:
+    #         print(str(q / 25) + '% done')
+    #     game = Game(silentUi)
+    #     game.start(Board([3, 5, 7]), lp1, lp2)
+    #     lp1, lp2 = lp2, lp1
     
     ui = ConsoleUserInterface()
     while True:
