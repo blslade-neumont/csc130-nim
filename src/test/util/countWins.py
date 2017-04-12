@@ -1,4 +1,4 @@
-from SilentUserInterface import *
+from test.util.SilentUserInterface import *
 from Game import *
 from Board import *
 
