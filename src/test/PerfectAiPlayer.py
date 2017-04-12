@@ -1,6 +1,5 @@
 from unittest import TestCase
 from PerfectAiPlayer import *
-from test.util.countWins import *
 
 class TestPerfectAiPlayer(TestCase):
     def setUp(self):
@@ -10,7 +9,7 @@ class TestPerfectAiPlayer(TestCase):
         self.p = None
     
     def test_train_winsWhenFirst(self):
-        self.assertEqual(countWins(self.p, PerfectAiPlayer(), swap=False), 100)
+        self.assertEqual(self.p.train(PerfectAiPlayer(), iterations=100, swap=False, printProgress=False), 100)
     
     def test_train_losesWhenLast(self):
-        self.assertEqual(countWins(PerfectAiPlayer(), self.p, swap=False), 100)
+        self.assertEqual(PerfectAiPlayer().train(self.p, iterations=100, swap=False, printProgress=False), 100)
