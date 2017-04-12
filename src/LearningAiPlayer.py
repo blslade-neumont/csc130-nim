@@ -1,10 +1,14 @@
 from Player import *
+from pathlib import Path
 
 class LearningAiPlayer(Player):
-    def __init__(self):
+    def __init__(self, filename = None):
         super().__init__('Learning AI')
         self.weights = { (0,0,0): -10000 }
         self.states = []
+        self.filename = filename
+        if filename:
+            self.load()
     
     def makeMove(self, game):
         selectedMove = None
@@ -31,7 +35,7 @@ class LearningAiPlayer(Player):
     def fakeState(self, board, move):
         fakeRows = [row for row in board.rows]
         fakeRows[move[0]] -= move[1]
-        return tuple(fakeRows)
+        return tuple(sorted(fakeRows))
     
     def recordResult(self, game, win):
         value = 1 if win else -1
@@ -42,15 +46,22 @@ class LearningAiPlayer(Player):
         
         super().recordResult(game, win)
     
-    def save(self, filename):
-        with open(filename, 'w') as file:
+    def save(self):
+        if not self.filename:
+            return
+            
+        with open(self.filename, 'w') as file:
             for key in self.weights:
                 file.write(",".join(map(str, key)) + ":" + str(self.weights[key]) + "\n")
     
-    def load(self, filename):
+    def load(self):
+        path = Path(self.filename)
+        if not path.is_file():
+            return
+            
         self.weights = {}
-        with open(filename) as file:
+        with open(self.filename) as file:
             for line in file:
                 key_str, score = line.split(":")
                 key = tuple(map(int, key_str.split(",")))
-                self.weights[key] = int(score)
+                self.weights[key] = float(score)

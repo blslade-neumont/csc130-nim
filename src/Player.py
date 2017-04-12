@@ -20,6 +20,9 @@ class Player(object):
             game.start(Board(initialBoardState[:]), p1, p2)
             if swap:
                 p1, p2 = p2, p1
+                
+        for p in [p1, p2]:
+            getattr(p, "save", lambda:None)()
     
     def makeMove(self, game):
         assert(False)
